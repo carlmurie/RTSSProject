@@ -356,7 +356,7 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> 386ac56 </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> 8c023a8 </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -369,6 +369,7 @@ Untracked files:
     Untracked:  data/RawReadsFiltered.rds
 
 Unstaged changes:
+    Modified:   analysis/primaryAnalysisChildren/child_1_Stim.Rmd
     Modified:   analysis/primaryAnalysisChildren/child_2_age_DEG.Rmd
 
 </code></pre>
@@ -398,6 +399,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+8c023a8
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 html
@@ -845,52 +863,31 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<!-- html table generated in R 3.4.4 by xtable 1.8-2 package -->
-<!-- Thu Aug  9 15:50:10 2018 -->
-<table border="1">
-<tr>
-<th>
-</th>
-<th>
-hbs
-</th>
-<th>
-csp
-</th>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">hbs</th>
+<th align="center">csp</th>
 </tr>
-<tr>
-<td align="center">
-both
-</td>
-<td align="center">
-16
-</td>
-<td align="center">
-1
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td>both</td>
+<td align="center">16</td>
+<td align="center">1</td>
 </tr>
-<tr>
-<td align="center">
-young
-</td>
-<td align="center">
-9
-</td>
-<td align="center">
-35
-</td>
+<tr class="even">
+<td>young</td>
+<td align="center">9</td>
+<td align="center">35</td>
 </tr>
-<tr>
-<td align="center">
-old
-</td>
-<td align="center">
-21
-</td>
-<td align="center">
-3
-</td>
+<tr class="odd">
+<td>old</td>
+<td align="center">21</td>
+<td align="center">3</td>
 </tr>
+</tbody>
 </table>
 <p></br></p>
 </div>
@@ -1230,52 +1227,31 @@ old
 <div id="summary-1" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<!-- html table generated in R 3.4.4 by xtable 1.8-2 package -->
-<!-- Thu Aug  9 15:50:22 2018 -->
-<table border="1">
-<tr>
-<th>
-</th>
-<th>
-hbs
-</th>
-<th>
-csp
-</th>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">hbs</th>
+<th align="center">csp</th>
 </tr>
-<tr>
-<td align="center">
-both
-</td>
-<td align="center">
-25
-</td>
-<td align="center">
-1
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td>both</td>
+<td align="center">25</td>
+<td align="center">1</td>
 </tr>
-<tr>
-<td align="center">
-young
-</td>
-<td align="center">
-26
-</td>
-<td align="center">
-39
-</td>
+<tr class="even">
+<td>young</td>
+<td align="center">26</td>
+<td align="center">39</td>
 </tr>
-<tr>
-<td align="center">
-old
-</td>
-<td align="center">
-64
-</td>
-<td align="center">
-17
-</td>
+<tr class="odd">
+<td>old</td>
+<td align="center">64</td>
+<td align="center">17</td>
 </tr>
+</tbody>
 </table>
 <p></br></p>
 </div>
@@ -1425,6 +1401,17 @@ Date
 <tbody>
 <tr>
 <td style="text-align:left;">
+8c023a8
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 386ac56
 </td>
 <td style="text-align:left;">
@@ -1496,7 +1483,38 @@ b1cb1e4
 </div>
 <div id="disease-effects-8" class="section level4">
 <h4><strong>Disease effects</strong></h4>
-<p><img src="figure/PrimaryAnalysis.Rmd/unnamed-chunk-66-1.png" width="672" style="display: block; margin: auto;" /> No significant genes found</p>
+<p><img src="figure/PrimaryAnalysis.Rmd/unnamed-chunk-66-1.png" width="672" style="display: block; margin: auto;" /></p>
+<details> <summary><em>Expand here to see past versions of unnamed-chunk-66-1.png:</em></summary>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+8c023a8
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+</tr>
+</tbody>
+</table>
+<p></details></p>
+<p>No significant genes found</p>
 </div>
 <div id="vaccine-effects---signficant-disease-gene-sets-8" class="section level4">
 <h4><strong>Vaccine effects</strong> - signficant Disease gene sets</h4>
@@ -1507,52 +1525,31 @@ b1cb1e4
 <div id="summary-2" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<!-- html table generated in R 3.4.4 by xtable 1.8-2 package -->
-<!-- Thu Aug  9 15:50:45 2018 -->
-<table border="1">
-<tr>
-<th>
-</th>
-<th>
-hbs
-</th>
-<th>
-csp
-</th>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">hbs</th>
+<th align="center">csp</th>
 </tr>
-<tr>
-<td align="center">
-both
-</td>
-<td align="center">
-1
-</td>
-<td align="center">
-1
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td>both</td>
+<td align="center">1</td>
+<td align="center">1</td>
 </tr>
-<tr>
-<td align="center">
-young
-</td>
-<td align="center">
-0
-</td>
-<td align="center">
-0
-</td>
+<tr class="even">
+<td>young</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td align="center">
-old
-</td>
-<td align="center">
-1
-</td>
-<td align="center">
-0
-</td>
+<tr class="odd">
+<td>old</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
+</tbody>
 </table>
 <p></br></p>
 </div>
@@ -1600,7 +1597,38 @@ b1cb1e4
 </div>
 <div id="disease-effects-9" class="section level4">
 <h4><strong>Disease effects</strong></h4>
-<p><img src="figure/PrimaryAnalysis.Rmd/unnamed-chunk-77-1.png" width="672" style="display: block; margin: auto;" /> No significant genes found</p>
+<p><img src="figure/PrimaryAnalysis.Rmd/unnamed-chunk-77-1.png" width="672" style="display: block; margin: auto;" /></p>
+<details> <summary><em>Expand here to see past versions of unnamed-chunk-77-1.png:</em></summary>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+8c023a8
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+</tr>
+</tbody>
+</table>
+<p></details></p>
+<p>No significant genes found</p>
 </div>
 <div id="vaccine-effects---signficant-disease-gene-sets-9" class="section level4">
 <h4><strong>Vaccine effects</strong> - signficant Disease gene sets</h4>
@@ -1658,7 +1686,38 @@ b1cb1e4
 </div>
 <div id="disease-effects-10" class="section level4">
 <h4><strong>Disease effects</strong></h4>
-<p><img src="figure/PrimaryAnalysis.Rmd/unnamed-chunk-81-1.png" width="672" style="display: block; margin: auto;" /> No significant genes found</p>
+<p><img src="figure/PrimaryAnalysis.Rmd/unnamed-chunk-81-1.png" width="672" style="display: block; margin: auto;" /></p>
+<details> <summary><em>Expand here to see past versions of unnamed-chunk-81-1.png:</em></summary>
+<table style="border-collapse:separate; border-spacing:5px;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Version
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+8c023a8
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+</tr>
+</tbody>
+</table>
+<p></details></p>
+<p>No significant genes found</p>
 </div>
 <div id="vaccine-effects---signficant-disease-gene-sets-10" class="section level4">
 <h4><strong>Vaccine effects</strong> - signficant Disease gene sets</h4>
@@ -1735,6 +1794,17 @@ Date
 <tbody>
 <tr>
 <td style="text-align:left;">
+8c023a8
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 386ac56
 </td>
 <td style="text-align:left;">
@@ -1758,52 +1828,31 @@ Date
 <div id="summary-3" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<!-- html table generated in R 3.4.4 by xtable 1.8-2 package -->
-<!-- Thu Aug  9 15:51:06 2018 -->
-<table border="1">
-<tr>
-<th>
-</th>
-<th>
-hbs
-</th>
-<th>
-csp
-</th>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">hbs</th>
+<th align="center">csp</th>
 </tr>
-<tr>
-<td align="center">
-both
-</td>
-<td align="center">
-1
-</td>
-<td align="center">
-0
-</td>
+</thead>
+<tbody>
+<tr class="odd">
+<td>both</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td align="center">
-young
-</td>
-<td align="center">
-0
-</td>
-<td align="center">
-0
-</td>
+<tr class="even">
+<td>young</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td align="center">
-old
-</td>
-<td align="center">
-0
-</td>
-<td align="center">
-0
-</td>
+<tr class="odd">
+<td>old</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
+</tbody>
 </table>
 </div>
 <div id="session-information" class="section level2">
