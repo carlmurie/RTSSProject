@@ -1,0 +1,94 @@
+```{r}
+## run analysis on a single stimulation: main effect, vaccine and disease
+
+  ## select data for particular stimulation
+  tCounts <- uCounts[,uCounts$stimulation==stim]
+  tLibNorm <- uLibNorm[uCounts$stimulation==stim]
+
+  ## track number of significant sets
+  allSummary <- ageSummary <- NULL
+  
+  ## choose child file depending on whether we are applying GSEA or DEG
+  if(DO_GSEA) {
+     child2 <- here::here("analysis/primaryAnalysisChildren", "child_2_age_GSEA.Rmd")
+  } else {
+     child2 <- here::here("analysis/primaryAnalysisChildren", "child_2_age_DEG.Rmd")
+  }
+  subChild <- read_file(child2)
+```
+  
+</br> 
+  
+###Both age groups  {.tabset .tabset-pills}
+  
+</br>  
+
+```{r}
+
+ ## both age groups
+
+ formulaVac <- formula(~plate + TotalReads + age + vaccine)
+ formulaDis <- formula(~plate + TotalReads + age + case)
+ myCounts <- tCounts
+ myLibNorm <- tLibNorm
+ 
+```
+`r paste(knit_child(text=subChild), collapse='\n')`
+```{r}
+allSummary <- ageSummary
+```
+  
+</br>  
+  
+###Young age group   {.tabset .tabset-pills}
+  
+</br>  
+  
+```{r}
+
+ ## young age groups
+
+ formulaVac <- formula(~plate + TotalReads + vaccine)
+ formulaDis <- formula(~plate + TotalReads + case)
+ myCounts <- tCounts[,tCounts$age=="young"]
+ myLibNorm <- tLibNorm[tCounts$age=="young"]
+ 
+```
+`r paste(knit_child(text=subChild), collapse='\n')`
+```{r}
+allSummary <- rbind(allSummary, ageSummary)
+```
+  
+</br>  
+  
+###Old age group   {.tabset .tabset-pills}
+  
+</br>  
+  
+```{r}
+
+ ## old age groups
+
+ formulaVac <- formula(~plate + TotalReads + vaccine)
+ formulaDis <- formula(~plate + TotalReads + case)
+ myCounts <- tCounts[,tCounts$age=="old"]
+ myLibNorm <- tLibNorm[tCounts$age=="old"]
+ 
+```
+`r paste(knit_child(text=subChild), collapse='\n')`  
+  
+##Summary
+  
+Summary of number of significant gene sets by age and stimulation.  
+  
+
+```{r}
+  allSummary <- rbind(allSummary, ageSummary)
+  dimnames(allSummary) <- list(c("both", "young", "old"), c(" hbs ", " csp "))
+  print(xtable(allSummary, align=rep("c", ncol(allSummary)+1), auto=TRUE), type = "html")
+```
+  
+  
+  
+
+ 

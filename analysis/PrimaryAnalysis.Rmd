@@ -1,0 +1,148 @@
+---
+title: "RTSS Project Report"
+subtitle: "Presentation of vaccine and disease effects"
+author: "Carl Murie and Raphael Gottardo"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+autosize: false
+output: 
+  BiocStyle::html_document:
+    incremental: no
+    keep_md: yes
+    smaller: no
+    toc_depth: 2
+    
+---
+ 
+```{r overall-knitr-options, cache=FALSE, echo=FALSE, message=FALSE, warning=FALSE, results="hide"}
+library(knitr)
+opts_chunk$set(cache=FALSE, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, results='asis')
+
+library(RNASeqUtilities)
+library(Biobase)
+library(edgeR)
+library(GSEABase)
+library(DT)
+library(xtable)
+library(limma)
+library(ggplot2)
+library(gridExtra)
+library(readr)
+
+DOFIT <- FALSE ## if TRUE run lmFit, otherwise read it from file.
+PLOT_CHILDREN <- FALSE
+FDRCut <- 0.2
+pCut <- 0.01
+
+  ## raw filtered read counts
+  counts <- readRDS(here::here("data", "RawReadsFiltered.rds"))
+
+  ## calculate library normalizations
+  normy <- calcNormFactors(counts)
+  libNorm <- colSums(exprs(counts))*normy
+
+  ## set up GSEA analysis  
+  btmFile <- here::here("data", "BTM_for_GSEA_20131008.gmt")
+  minGeneSetCut <- 5
+  geneSet <- getGmt(btmFile)
+  geneIds <- geneIds(geneSet)
+  setsIndices <- ids2indices(geneIds, rownames(counts))
+  setsIndices <- setsIndices[sapply(setsIndices, length) > minGeneSetCut]
+
+```
+  
+</br>  
+   
+#Statistical Analysis {.smaller}
+
+Investigate hbs and csp stimulations for M3 timepoint only.
+
+1. Compare vaccine effects (rtss - comparator)  
+2. Compare disease effects (case - control)  
+3. Apply GSEA analysis (camera) with the Blood Transcriptional Modules (BTM) and individual gene testing (DEGs) to all comparisons 
+    + Apply comparisons to age groups both together and separately.
+    + A Bayesian variance shrinkage estimator and the Benjamini-Hochberg FDR were applied.
+    + An FDR cutoff of `r FDRCut` was used for significance.
+
+
+```{r gsea, results="asis"}
+ 
+  ############################## GSEA analysis #####################################
+
+   ## remove 'ama1' stimulation and select only M3 timepoint
+   uInd <- counts$stimulation != "ama1" & counts$visit =="M3"
+   uCounts <- counts[,uInd]
+   uLibNorm <- libNorm[uInd]
+   child1 <- here::here("analysis/primaryAnalysisChildren", "child_1_Stim.Rmd")
+   childy <- read_file(child1)
+   
+```
+  
+</br>
+   
+#GSEA  
+   
+</br>
+   
+##**HBS**
+   
+```{r }   
+  ########################## run hbs analysis ############################
+   
+   ## hbs analysis
+   stim <- "hbs"
+   DO_GSEA <- TRUE
+
+```
+```{r plotChild1, child=child1, eval=FALSE}
+```
+  
+`r paste(knit_child(text = childy), collapse = '\n')`
+</br>
+  
+##**CSP**
+   
+```{r }   
+  ########################## run csp analysis ############################
+   
+   ## csp analysis
+   stim <- "csp"
+   DO_GSEA <- TRUE
+   
+```
+
+`r paste(knit_child(text = childy), collapse = '\n')`
+
+</br>
+ 
+#DEG - differentially expressed genes  
+  
+</br>
+
+##**HBS**
+   
+```{r }   
+  ########################## run hbs analysis ############################
+   
+   ## hbs analysis
+   stim <- "hbs"
+   DO_GSEA <- FALSE
+
+```
+</br> 
+`r paste(knit_child(text = childy), collapse = '\n')`
+</br>
+
+##**CSP**
+   
+```{r }   
+  ########################## run hbs analysis ############################
+   
+   ## hbs analysis
+   stim <- "csp"
+   DO_GSEA <- FALSE
+
+```
+
+</br>
+`r paste(knit_child(text = childy), collapse = '\n')`
+ 

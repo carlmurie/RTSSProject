@@ -1,0 +1,82 @@
+```{r}
+  ## analyse for one age group
+
+  ## store number of significant gene sets for disease and vaccine effects
+  ageSummary <- NULL
+
+  ## vaccine
+  coeffVac <- "vaccinertss"
+
+  ## sample sizes
+  vacTab <- countSampleSizes(pData(myCounts), "vaccine", c("site", "sex", "age", "case"))
+  
+   ## GSEA analysis
+  myDesVac <- model.matrix(formulaVac, myCounts)
+  v <- voom(exprs(myCounts), design=myDesVac, plot=FALSE, lib.size=myLibNorm)
+  resVac <- camera(v, setsIndices, design=myDesVac, contrast=coeffVac, sort=TRUE)
+  indo <- resVac$FDR <= FDRCut
+  sigSetVac <- cbind(resVac[indo, c("NGenes", "Direction")], 
+                   signif(resVac[indo, c("PValue","FDR")], 3))
+  ageSummary <- sum(indo)
+  
+   ## disease
+  coeffDis <- "casecase"
+
+  ## filtering
+  cInd <- (myCounts$case == "case" | myCounts$case == "control") & myCounts$vaccine=="rtss"
+  dCounts <- myCounts[,cInd]
+  dLibNorm <- myLibNorm[cInd]
+  
+  ##refactor case to get rid of 'neither' level
+  dCounts$case <- factor(dCounts$case, levels=c("control", "case"))
+  
+  ## sample sizes
+  disTab <- countSampleSizes(pData(dCounts), "case", c("site", "sex", "age", "vaccine"))
+ 
+  ## GSEA analysis
+  myDesDis <- model.matrix(formulaDis, dCounts)
+  vd <- voom(exprs(dCounts), design=myDesDis, plot=FALSE, lib.size=dLibNorm)
+  res <- camera(vd, setsIndices, design=myDesDis, contrast=coeffDis, sort=TRUE)
+  indo <- res$FDR <= FDRCut
+  sigSetDis <- cbind(res[indo, c("NGenes", "Direction")], 
+                   signif(res[indo, c("PValue","FDR")], 3))
+  ageSummary <- c(ageSummary, sum(indo))
+
+```
+
+**Sample sizes**
+
+```{r}
+ kable(vacTab, caption="vaccine samples", align=rep("c", ncol(vacTab)))
+ kable(disTab, caption="disease samples", align=rep("c", ncol(vacTab)))
+```
+
+
+####**Vaccine effects** {-}
+  
+```{r}
+  datatable(sigSetVac, caption="Significant GSEA gene sets")
+```
+  
+  
+
+####**Disease effects** {-}
+  
+```{r}
+  datatable(sigSetDis, caption="Significant GSEA gene sets")
+```
+  
+  
+####**Vaccine effects** - signficant Disease gene sets {-}
+  
+```{r}
+
+## get vaccine GSEA results for significant disease gene sets
+vacDisSets <- resVac[row.names(sigSetDis),]
+vacDisSets$PValue <- signif(vacDisSets$PValue, 3)
+vacDisSets$FDR <- signif(p.adjust(vacDisSets$PValue, method="BH"), 3)
+
+datatable(vacDisSets, caption="Vaccine: signicant GSEA sets from disease")
+```
+  
+  

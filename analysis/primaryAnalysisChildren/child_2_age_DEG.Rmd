@@ -1,0 +1,101 @@
+```{r}
+  ## analyse for one age group
+
+  ## select subset of results from 'topTable' results
+  colInd <- c("logFC", "P.Value", "adj.P.Val")
+
+  ## store number of significant gene sets for disease and vaccine effects
+  ageSummary <- NULL
+  
+  ################## vaccine #################################
+  coeffVac <- "vaccinertss"
+
+  ## DEG analysis
+  myDesVac <- model.matrix(formulaVac, myCounts)
+  v <- voom(exprs(myCounts), design=myDesVac, plot=FALSE, lib.size=myLibNorm)
+  fit1 <- lmFit(v, myDesVac)
+  fit2 <- eBayes(fit1, trend=FALSE)
+  tmpVac <- topTable(fit2, number=Inf, coef=coeffVac, sort="P")
+  tmpVacSub <-  signif(tmpVac[tmpVac$adj.P.Val <= FDRCut, colInd], 3)
+  colnames(tmpVacSub) <- c("log FC",  "P.value", "FDR")
+  ageSummary <- nrow(tmpVacSub)
+  
+   ################# disease #################################
+  coeffDis <- "casecase"
+
+  ## filtering
+  cInd <- (myCounts$case == "case" | myCounts$case == "control") & myCounts$vaccine=="rtss"
+  dCounts <- myCounts[,cInd]
+  dLibNorm <- myLibNorm[cInd]
+  
+  ##refactor case to get rid of 'neither' level
+  dCounts$case <- factor(dCounts$case, levels=c("control", "case"))
+ 
+  myDesDis <- model.matrix(formulaDis, dCounts)
+  v <- voom(exprs(dCounts), design=myDesDis, plot=FALSE, lib.size=dLibNorm)
+  fit1 <- lmFit(v, myDesDis)
+  fit2 <- eBayes(fit1, trend=FALSE)
+  tmpDis <- topTable(fit2, number=Inf, coef=coeffDis, sort="P")
+  tmpDisSub <-  signif(tmpDis[tmpDis$adj.P.Val <= FDRCut, colInd], 3)
+  colnames(tmpDisSub) <- c("log FC",  "P.value", "FDR")
+  ageSummary <- c(ageSummary, nrow(tmpDisSub))
+  
+  ################ get vaccine GSEA results for significant disease gene sets ###############
+  vacDisDeg <- tmpVac[row.names(tmpDisSub),]
+  vacDisDeg <- vacDisDeg[,colInd]
+  vacDisDeg <- signif(vacDisDeg, 3)
+  colnames(vacDisDeg) <- c("log FC",  "P.value", "FDR")
+  vacDisDeg$FDR <- signif(p.adjust(vacDisDeg$P.value, method="BH"), 3)
+
+```
+
+<font size="3"> **Vaccine effects**</font>
+  
+```{r}
+  graphs <- createDEGGraphs(tmpVac, title="vaccine", fdrCut=FDRCut) 
+  grid.arrange(graphs[[1]], graphs[[2]], graphs[[3]], nrow=1, ncol=3)
+  
+  if(nrow(tmpVacSub) >0) {
+     datatable(tmpVacSub, caption="Significant DEG genes")
+  } else {
+     cat("No significant genes found\n")
+  }
+```
+  
+
+<font size="3"> **Vaccine effects**</font> - signficant Disease gene sets
+  
+```{r}
+
+## get vaccine GSEA results for significant disease gene sets
+vacDisDeg <- tmpVac[row.names(tmpDisSub),]
+vacDisDeg <- vacDisDeg[,colInd]
+vacDisDeg <- signif(vacDisDeg, 3)
+colnames(vacDisDeg) <- c("log FC",  "P.value", "FDR")
+vacDisDeg$FDR <- signif(p.adjust(vacDisDeg$P.value, method="BH"), 3)
+
+if(nrow(vacDisDeg) > 0) {
+   datatable(vacDisDeg, caption="Vaccine: signicant GSEA sets from disease")
+} else {
+   cat("No significant genes found\n")
+}
+
+```
+  
+  
+<font size="3"> **Disease effects**</font>  
+  
+```{r}
+  
+  graphs <- createDEGGraphs(tmpDis, title="disease", fdrCut=FDRCut) 
+  grid.arrange(grobs=graphs, nrow=1)
+
+  if(nrow(tmpDisSub) > 0) {
+     datatable(tmpDisSub, caption="Significant DEG genes")
+  } else {
+     cat("\nNo significant genes found\n")
+  }
+  
+```
+  
+  
