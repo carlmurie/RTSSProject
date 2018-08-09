@@ -356,7 +356,7 @@ div.section {
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> 8c023a8 </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> 59a6a25 </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -371,6 +371,7 @@ Untracked files:
 Unstaged changes:
     Modified:   analysis/primaryAnalysisChildren/child_1_Stim.Rmd
     Modified:   analysis/primaryAnalysisChildren/child_2_age_DEG.Rmd
+    Modified:   analysis/primaryAnalysisChildren/child_2_age_GSEA.Rmd
 
 </code></pre>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes. </details>
@@ -399,6 +400,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+59a6a25
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 html
@@ -534,52 +552,8 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <h3>Both age groups</h3>
 <p></br></p>
 <p><strong>Sample sizes</strong></p>
-<table>
-<caption>vaccine samples</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">total</th>
-<th align="center">BAGAMOYO</th>
-<th align="center">MANHICA</th>
-<th align="center">F</th>
-<th align="center">M</th>
-<th align="center">young</th>
-<th align="center">old</th>
-<th align="center">control</th>
-<th align="center">case</th>
-<th align="center">neither</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>comparator</td>
-<td align="center">120</td>
-<td align="center">69</td>
-<td align="center">51</td>
-<td align="center">65</td>
-<td align="center">55</td>
-<td align="center">43</td>
-<td align="center">77</td>
-<td align="center">42</td>
-<td align="center">23</td>
-<td align="center">55</td>
-</tr>
-<tr class="even">
-<td>rtss</td>
-<td align="center">209</td>
-<td align="center">124</td>
-<td align="center">85</td>
-<td align="center">96</td>
-<td align="center">113</td>
-<td align="center">72</td>
-<td align="center">137</td>
-<td align="center">87</td>
-<td align="center">29</td>
-<td align="center">93</td>
-</tr>
-</tbody>
-</table>
+<pre><code>       total BAGAMOYO MANHICA  F   M young old control case neither</code></pre>
+<p>comparator 120 69 51 65 55 43 77 42 23 55 rtss 209 124 85 96 113 72 137 87 29 93</p>
 <table>
 <caption>disease samples</caption>
 <thead>
@@ -644,52 +618,8 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <h3>Young age group</h3>
 <p></br></p>
 <p><strong>Sample sizes</strong></p>
-<table>
-<caption>vaccine samples</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">total</th>
-<th align="center">BAGAMOYO</th>
-<th align="center">MANHICA</th>
-<th align="center">F</th>
-<th align="center">M</th>
-<th align="center">young</th>
-<th align="center">old</th>
-<th align="center">control</th>
-<th align="center">case</th>
-<th align="center">neither</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>comparator</td>
-<td align="center">43</td>
-<td align="center">0</td>
-<td align="center">43</td>
-<td align="center">26</td>
-<td align="center">17</td>
-<td align="center">43</td>
-<td align="center">0</td>
-<td align="center">12</td>
-<td align="center">6</td>
-<td align="center">25</td>
-</tr>
-<tr class="even">
-<td>rtss</td>
-<td align="center">72</td>
-<td align="center">0</td>
-<td align="center">72</td>
-<td align="center">37</td>
-<td align="center">35</td>
-<td align="center">72</td>
-<td align="center">0</td>
-<td align="center">36</td>
-<td align="center">10</td>
-<td align="center">26</td>
-</tr>
-</tbody>
-</table>
+<pre><code>       total BAGAMOYO MANHICA  F  M young old control case neither</code></pre>
+<p>comparator 43 0 43 26 17 43 0 12 6 25 rtss 72 0 72 37 35 72 0 36 10 26</p>
 <table>
 <caption>disease samples</caption>
 <thead>
@@ -754,52 +684,8 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <h3>Old age group</h3>
 <p></br></p>
 <p><strong>Sample sizes</strong></p>
-<table>
-<caption>vaccine samples</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">total</th>
-<th align="center">BAGAMOYO</th>
-<th align="center">MANHICA</th>
-<th align="center">F</th>
-<th align="center">M</th>
-<th align="center">young</th>
-<th align="center">old</th>
-<th align="center">control</th>
-<th align="center">case</th>
-<th align="center">neither</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>comparator</td>
-<td align="center">77</td>
-<td align="center">69</td>
-<td align="center">8</td>
-<td align="center">39</td>
-<td align="center">38</td>
-<td align="center">0</td>
-<td align="center">77</td>
-<td align="center">30</td>
-<td align="center">17</td>
-<td align="center">30</td>
-</tr>
-<tr class="even">
-<td>rtss</td>
-<td align="center">137</td>
-<td align="center">124</td>
-<td align="center">13</td>
-<td align="center">59</td>
-<td align="center">78</td>
-<td align="center">0</td>
-<td align="center">137</td>
-<td align="center">51</td>
-<td align="center">19</td>
-<td align="center">67</td>
-</tr>
-</tbody>
-</table>
+<pre><code>       total BAGAMOYO MANHICA  F  M young old control case neither</code></pre>
+<p>comparator 77 69 8 39 38 0 77 30 17 30 rtss 137 124 13 59 78 0 137 51 19 67</p>
 <table>
 <caption>disease samples</caption>
 <thead>
@@ -863,32 +749,7 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <div id="summary" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">hbs</th>
-<th align="center">csp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>both</td>
-<td align="center">16</td>
-<td align="center">1</td>
-</tr>
-<tr class="even">
-<td>young</td>
-<td align="center">9</td>
-<td align="center">35</td>
-</tr>
-<tr class="odd">
-<td>old</td>
-<td align="center">21</td>
-<td align="center">3</td>
-</tr>
-</tbody>
-</table>
+<p>allSummary 1 3 9 16 21 35 1 1 1 1 1 1 hbs csp both 16 1 young 9 35 old 21 3</p>
 <p></br></p>
 </div>
 <div id="csp" class="section level2">
@@ -898,52 +759,8 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <h3>Both age groups</h3>
 <p></br></p>
 <p><strong>Sample sizes</strong></p>
-<table>
-<caption>vaccine samples</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">total</th>
-<th align="center">BAGAMOYO</th>
-<th align="center">MANHICA</th>
-<th align="center">F</th>
-<th align="center">M</th>
-<th align="center">young</th>
-<th align="center">old</th>
-<th align="center">control</th>
-<th align="center">case</th>
-<th align="center">neither</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>comparator</td>
-<td align="center">131</td>
-<td align="center">73</td>
-<td align="center">58</td>
-<td align="center">71</td>
-<td align="center">60</td>
-<td align="center">51</td>
-<td align="center">80</td>
-<td align="center">48</td>
-<td align="center">23</td>
-<td align="center">60</td>
-</tr>
-<tr class="even">
-<td>rtss</td>
-<td align="center">216</td>
-<td align="center">126</td>
-<td align="center">90</td>
-<td align="center">102</td>
-<td align="center">114</td>
-<td align="center">77</td>
-<td align="center">139</td>
-<td align="center">92</td>
-<td align="center">31</td>
-<td align="center">93</td>
-</tr>
-</tbody>
-</table>
+<pre><code>       total BAGAMOYO MANHICA   F   M young old control case neither</code></pre>
+<p>comparator 131 73 58 71 60 51 80 48 23 60 rtss 216 126 90 102 114 77 139 92 31 93</p>
 <table>
 <caption>disease samples</caption>
 <thead>
@@ -1008,52 +825,8 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <h3>Young age group</h3>
 <p></br></p>
 <p><strong>Sample sizes</strong></p>
-<table>
-<caption>vaccine samples</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">total</th>
-<th align="center">BAGAMOYO</th>
-<th align="center">MANHICA</th>
-<th align="center">F</th>
-<th align="center">M</th>
-<th align="center">young</th>
-<th align="center">old</th>
-<th align="center">control</th>
-<th align="center">case</th>
-<th align="center">neither</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>comparator</td>
-<td align="center">51</td>
-<td align="center">0</td>
-<td align="center">51</td>
-<td align="center">30</td>
-<td align="center">21</td>
-<td align="center">51</td>
-<td align="center">0</td>
-<td align="center">16</td>
-<td align="center">6</td>
-<td align="center">29</td>
-</tr>
-<tr class="even">
-<td>rtss</td>
-<td align="center">77</td>
-<td align="center">0</td>
-<td align="center">77</td>
-<td align="center">41</td>
-<td align="center">36</td>
-<td align="center">77</td>
-<td align="center">0</td>
-<td align="center">40</td>
-<td align="center">12</td>
-<td align="center">25</td>
-</tr>
-</tbody>
-</table>
+<pre><code>       total BAGAMOYO MANHICA  F  M young old control case neither</code></pre>
+<p>comparator 51 0 51 30 21 51 0 16 6 29 rtss 77 0 77 41 36 77 0 40 12 25</p>
 <table>
 <caption>disease samples</caption>
 <thead>
@@ -1118,52 +891,8 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <h3>Old age group</h3>
 <p></br></p>
 <p><strong>Sample sizes</strong></p>
-<table>
-<caption>vaccine samples</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">total</th>
-<th align="center">BAGAMOYO</th>
-<th align="center">MANHICA</th>
-<th align="center">F</th>
-<th align="center">M</th>
-<th align="center">young</th>
-<th align="center">old</th>
-<th align="center">control</th>
-<th align="center">case</th>
-<th align="center">neither</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>comparator</td>
-<td align="center">80</td>
-<td align="center">73</td>
-<td align="center">7</td>
-<td align="center">41</td>
-<td align="center">39</td>
-<td align="center">0</td>
-<td align="center">80</td>
-<td align="center">32</td>
-<td align="center">17</td>
-<td align="center">31</td>
-</tr>
-<tr class="even">
-<td>rtss</td>
-<td align="center">139</td>
-<td align="center">126</td>
-<td align="center">13</td>
-<td align="center">61</td>
-<td align="center">78</td>
-<td align="center">0</td>
-<td align="center">139</td>
-<td align="center">52</td>
-<td align="center">19</td>
-<td align="center">68</td>
-</tr>
-</tbody>
-</table>
+<pre><code>       total BAGAMOYO MANHICA  F  M young old control case neither</code></pre>
+<p>comparator 80 73 7 41 39 0 80 32 17 31 rtss 139 126 13 61 78 0 139 52 19 68</p>
 <table>
 <caption>disease samples</caption>
 <thead>
@@ -1227,32 +956,7 @@ wflow_git_commit(c(“analysis/PrimaryAnalysis.Rmd”, “analysis/primaryAnalys
 <div id="summary-1" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">hbs</th>
-<th align="center">csp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>both</td>
-<td align="center">25</td>
-<td align="center">1</td>
-</tr>
-<tr class="even">
-<td>young</td>
-<td align="center">26</td>
-<td align="center">39</td>
-</tr>
-<tr class="odd">
-<td>old</td>
-<td align="center">64</td>
-<td align="center">17</td>
-</tr>
-</tbody>
-</table>
+<p>allSummary 1 17 25 26 39 64 1 1 1 1 1 1 hbs csp both 25 1 young 26 39 old 64 17</p>
 <p></br></p>
 </div>
 </div>
@@ -1525,32 +1229,7 @@ Date
 <div id="summary-2" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">hbs</th>
-<th align="center">csp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>both</td>
-<td align="center">1</td>
-<td align="center">1</td>
-</tr>
-<tr class="even">
-<td>young</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td>old</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-</tbody>
-</table>
+<p>allSummary 0 1 3 3 hbs csp both 1 1 young 0 0 old 1 0</p>
 <p></br></p>
 </div>
 <div id="csp-1" class="section level2">
@@ -1828,32 +1507,7 @@ Date
 <div id="summary-3" class="section level2">
 <h2>Summary</h2>
 <p>Summary of number of significant gene sets by age and stimulation.</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="center">hbs</th>
-<th align="center">csp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>both</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td>young</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td>old</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-</tbody>
-</table>
+<p>allSummary 0 1 5 1 hbs csp both 1 0 young 0 0 old 0 0</p>
 </div>
 <div id="session-information" class="section level2">
 <h2>Session information</h2>
