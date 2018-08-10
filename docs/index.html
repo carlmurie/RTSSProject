@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>RTSS project</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -216,21 +216,20 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">RTSS project</h1>
 
 </div>
 
 
-<p><strong>Last updated:</strong> 2018-08-09</p>
+<p><strong>Last updated:</strong> 2018-08-10</p>
 <strong>workflowr checks:</strong> <small>(Click a bullet for more information)</small>
 <ul>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>R Markdown file:</strong> up-to-date </summary></p>
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p><details> <summary> <strong style="color:red;">✖</strong> <strong>R Markdown file:</strong> uncommitted changes </summary> The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </details>
 </li>
 <li>
-<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> 59a6a25 </summary></p>
+<p><details> <summary> <strong style="color:blue;">✔</strong> <strong>Repository version:</strong> fda6d71 </summary></p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 <pre><code>
 Ignored files:
@@ -238,11 +237,14 @@ Ignored files:
     Ignored:    analysis/.Rhistory
 
 Untracked files:
+    Untracked:  analysis/secondaryAnalysis.Rmd
     Untracked:  code/
     Untracked:  data/BTM_for_GSEA_20131008.gmt
     Untracked:  data/RawReadsFiltered.rds
 
 Unstaged changes:
+    Modified:   analysis/PrimaryAnalysis.Rmd
+    Modified:   analysis/index.Rmd
     Modified:   analysis/primaryAnalysisChildren/child_1_Stim.Rmd
     Modified:   analysis/primaryAnalysisChildren/child_2_age_DEG.Rmd
     Modified:   analysis/primaryAnalysisChildren/child_2_age_GSEA.Rmd
@@ -274,6 +276,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+html
+</td>
+<td style="text-align:left;">
+fda6d71
+</td>
+<td style="text-align:left;">
+<a href="mailto:carl.murie@gmail.com">carl.murie@gmail.com</a>
+</td>
+<td style="text-align:left;">
+2018-08-09
+</td>
+<td style="text-align:left;">
+Build site.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 html
@@ -381,8 +400,13 @@ Start workflowr project.
 </ul>
 <p></details></p>
 <hr />
-<p>Welcome to my research website.</p>
-<p><a href="PrimaryAnalysis.html">Primary analysis: main affects</a></p>
+<p>RTSS project web site</p>
+<div id="primary-analysis-main-affects" class="section level1">
+<h1><a href="PrimaryAnalysis.html">Primary analysis: main affects</a></h1>
+</div>
+<div id="secondary-analysis" class="section level1">
+<h1><a href="secondaryAnalysis.html">Secondary analysis</a></h1>
+</div>
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see

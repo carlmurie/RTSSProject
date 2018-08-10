@@ -49,7 +49,7 @@
 
 ```
 
-<font size="3"> **Vaccine effects**</font>
+####**Vaccine effects**
   
 ```{r}
   graphs <- createDEGGraphs(tmpVac, title="vaccine", fdrCut=FDRCut) 
@@ -62,8 +62,24 @@
   }
 ```
   
+####**Disease effects**
+  
+```{r}
+  
+  graphs <- createDEGGraphs(tmpDis, title="disease", fdrCut=FDRCut) 
+  grid.arrange(grobs=graphs, nrow=1)
 
-<font size="3"> **Vaccine effects**</font> - signficant Disease gene sets
+  if(nrow(tmpDisSub) > 0) {
+     datatable(tmpDisSub, caption="Significant DEG genes")
+  } else {
+     cat("\nNo significant genes found\n")
+  }
+  
+```
+  
+  
+
+####**Vaccine effects** - signficant Disease gene sets
   
 ```{r}
 
@@ -82,20 +98,4 @@ if(nrow(vacDisDeg) > 0) {
 
 ```
   
-  
-<font size="3"> **Disease effects**</font>  
-  
-```{r}
-  
-  graphs <- createDEGGraphs(tmpDis, title="disease", fdrCut=FDRCut) 
-  grid.arrange(grobs=graphs, nrow=1)
-
-  if(nrow(tmpDisSub) > 0) {
-     datatable(tmpDisSub, caption="Significant DEG genes")
-  } else {
-     cat("\nNo significant genes found\n")
-  }
-  
-```
-  
-  
+ 

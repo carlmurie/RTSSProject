@@ -47,10 +47,18 @@
 **Sample sizes**
 
 ```{r}
- kable(vacTab, caption="vaccine samples", align=rep("c", ncol(vacTab)))
- kable(disTab, caption="disease samples", align=rep("c", ncol(vacTab)))
-```
 
+ kable(vacTab, caption="vaccine samples", align=rep("c", ncol(vacTab))) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width=FALSE,
+                position="left") %>%
+  add_header_above(c(" ", " ", "location"=2, "gender"=2, "age"=2, "case"=3))
+ kable(disTab, caption="disease samples", align=rep("c", ncol(vacTab))) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width=FALSE,
+                position="left")%>%
+  add_header_above(c(" ", " ", "location"=2, "gender"=2, "age"=2, "vaccine"=2))
+```
+  
+</br>
 
 ####**Vaccine effects** {-}
   

@@ -1,0 +1,19 @@
+---
+title: "RTSS Project Report"
+subtitle: "Presentation of vaccine and disease effects"
+author: "Carl Murie and Raphael Gottardo"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+autosize: false
+output: 
+   BiocStyle::html_documen:
+    incremental: no
+    keep_md: yes
+    smaller: no
+    toc_depth: 2
+    
+---
+ 
+#Introduction
+ 
+ This is an example of another analysis file.
+ 

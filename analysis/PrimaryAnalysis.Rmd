@@ -5,7 +5,7 @@ author: "Carl Murie and Raphael Gottardo"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 autosize: false
 output: 
-  BiocStyle::html_document:
+   BiocStyle::html_documen:
     incremental: no
     keep_md: yes
     smaller: no
@@ -16,7 +16,7 @@ output:
 ```{r overall-knitr-options, cache=FALSE, echo=FALSE, message=FALSE, warning=FALSE, results="hide"}
 library(knitr)
 opts_chunk$set(cache=FALSE, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, results='asis')
-
+##BiocStyle::html_document
 library(RNASeqUtilities)
 library(Biobase)
 library(edgeR)
@@ -27,6 +27,7 @@ library(limma)
 library(ggplot2)
 library(gridExtra)
 library(readr)
+library(kableExtra)
 
 DOFIT <- FALSE ## if TRUE run lmFit, otherwise read it from file.
 PLOT_CHILDREN <- FALSE

@@ -85,7 +85,10 @@ Summary of number of significant gene sets by age and stimulation.
 ```{r}
   allSummary <- rbind(allSummary, ageSummary)
   dimnames(allSummary) <- list(c("both", "young", "old"), c(" hbs ", " csp "))
-  print(xtable(allSummary, align=rep("c", ncol(allSummary)+1), auto=TRUE), type = "html")
+  kable(allSummary, align=rep("c", ncol(allSummary))) %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                  full_width=FALSE, position="left")
+
 ```
   
   
