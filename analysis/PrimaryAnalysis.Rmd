@@ -5,7 +5,7 @@ author: "Carl Murie and Raphael Gottardo"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 autosize: false
 output: 
-   BiocStyle::html_documen:
+   BiocStyle::html_document:
     incremental: no
     keep_md: yes
     smaller: no
@@ -73,6 +73,8 @@ Investigate hbs and csp stimulations for M3 timepoint only.
    uInd <- counts$stimulation != "ama1" & counts$visit =="M3"
    uCounts <- counts[,uInd]
    uLibNorm <- libNorm[uInd]
+   
+   ## read in child file for rendering
    child1 <- here::here("analysis/primaryAnalysisChildren", "child_1_Stim.Rmd")
    childy <- read_file(child1)
    
